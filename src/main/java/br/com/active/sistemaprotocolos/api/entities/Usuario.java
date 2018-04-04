@@ -2,18 +2,14 @@ package br.com.active.sistemaprotocolos.api.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -29,11 +25,12 @@ public class Usuario  implements Serializable {
 	private Long id;
 	private String nome;
 	private String email;
+	private String login;
 	private String senha;
 	private PerfilEnum perfil;
+	private Long diretoriaId;
 	private Date dataCriacao;
 	private Date dataAtualizacao;
-	private List<String> protocolos;
 	
 	public Usuario() {
 		
@@ -66,6 +63,15 @@ public class Usuario  implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Column(name = "login", nullable = false)
+	public String getLogin() {
+		return login;
+	}
+	
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
 	@Column(name = "senha", nullable = false)
 	public String getSenha() {
@@ -84,6 +90,15 @@ public class Usuario  implements Serializable {
 
 	public void setPerfil(PerfilEnum perfil) {
 		this.perfil = perfil;
+	}
+	
+	@Column(name = "diretoria_id", nullable = false)
+	public Long getDiretoriaId() {
+		return diretoriaId;
+	}
+	
+	public void setDiretoriaId(Long diretoriaId) {
+		this.diretoriaId = diretoriaId;
 	}
 
 	@Column(name = "data_criacao", nullable = false)
@@ -104,15 +119,6 @@ public class Usuario  implements Serializable {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public List<String> getProtocolos() {
-		return protocolos;
-	}
-
-	public void setProtocolos(List<String> protocolos) {
-		this.protocolos = protocolos;
-	}
-	
 	@PreUpdate
 	public void preUpdate() {
 		dataAtualizacao = new Date();
@@ -128,7 +134,8 @@ public class Usuario  implements Serializable {
 	@Override
 	public String toString() {
 		return "Usuario [id = " + id + ", nome = " + nome + ", email = " + email
-				+ ", perfil = " + perfil + ", dataCriacao = " + dataCriacao
-				+ ", dataAtualizacao = " + dataAtualizacao + ", protocolos = " + protocolos + "]";
+				+ ", login = " + login + ", perfil = " + perfil + ", diretoriaId = " + diretoriaId 
+				+", dataCriacao = " + dataCriacao + ", dataAtualizacao = " 
+				+ dataAtualizacao + "]";
 	}
 }

@@ -5,16 +5,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "protocolo")
@@ -25,8 +21,8 @@ public class Protocolo implements Serializable {
 	private Long id;
 	private String descricao;
 	private String email;
-	private Date data;
-	private Usuario usuario;
+	private Long usuarioId;
+	private Long diretoriaId;
 	private Date dataCriacao;
 	private Date dataAtualizacao;
 	
@@ -62,23 +58,22 @@ public class Protocolo implements Serializable {
 		this.email = email;
 	}
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "data", nullable = false)
-	public Date getData() {
-		return data;
+	@Column(name = "usuario_id", nullable = false)
+	public Long getUsuarioId() {
+		return usuarioId;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
 	}
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	public Usuario getUsuario() {
-		return usuario;
+	
+	@Column(name = "diretoria_id", nullable = false)
+	public Long getDiretoriaId() {
+		return diretoriaId;
 	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	
+	public void setDiretoriaId(Long diretoriaId) {
+		this.diretoriaId = diretoriaId;
 	}
 
 	@Column(name = "data_criacao", nullable = false)
@@ -114,7 +109,7 @@ public class Protocolo implements Serializable {
 	@Override
 	public String toString() {
 		return "Protocolo [id = " + id + ", descricao = " + descricao + ", email = " + email
-				+ ", data = " + data + ", usuario = " + usuario + ", dataCriacao = " + dataCriacao
-				+ ", dataAtualizacao = " + dataAtualizacao + "]";
+			    + ", usuarioId = " + usuarioId + ", diretoriaId = " + diretoriaId 
+				+ ", dataCriacao = " + dataCriacao + ", dataAtualizacao = " + dataAtualizacao + "]";
 	}	
 }

@@ -21,6 +21,8 @@ public class Diretoria implements Serializable {
 	private Long id;
 	private String descricao;
 	private String sigla;
+	private String telefone;
+	private String email;
 	private Date dataCriacao;
 	private Date dataAtualizacao;
 	
@@ -54,6 +56,24 @@ public class Diretoria implements Serializable {
 
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
+	}
+	
+	@Column(name = "telefone", nullable = false)
+	public String getTelefone() {
+		return telefone;
+	}
+	
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
+	@Column(name = "email", nullable = false)
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Column(name = "data_criacao", nullable = false)
@@ -89,6 +109,7 @@ public class Diretoria implements Serializable {
 	@Override
 	public String toString() {
 		return "Diretoria [id = " + id + ", descricao = " + descricao + ", sigla = " + sigla
-				+ ", dataCriacao = " + dataCriacao + ", dataAtualizacao = " + dataAtualizacao + "]";
+				+ ", telefone = " + telefone + ", email = " + email	+ ", dataCriacao = "
+				+ dataCriacao + ", dataAtualizacao = " + dataAtualizacao + "]";
 	}	
 }
