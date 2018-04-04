@@ -36,4 +36,10 @@ public class DiretoriaServiceImpl implements DiretoriaService {
 		log.info("Persistindo diretoria: {}", diretoria);
 		return this.diretoriaRepository.save(diretoria);
 	}
+
+	@Override
+	public void remover(Long id) {
+		log.info("Removendo diretoria com ID: {}", id);
+		this.diretoriaRepository.delete(id);
+	}
 }

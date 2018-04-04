@@ -43,4 +43,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 		log.info("Persistindo usuário: {}", usuario);
 		return this.usuarioRepository.save(usuario);
 	}
+	
+	@Override
+	public void remover(Long id) {
+		log.info("Removendo usuario com ID: {}", id);
+		this.usuarioRepository.delete(id);
+	}
 }

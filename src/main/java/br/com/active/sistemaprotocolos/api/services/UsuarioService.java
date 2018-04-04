@@ -42,4 +42,12 @@ public interface UsuarioService {
 	 * @return Usuario
 	 */
 	Usuario persistir(Usuario usuario);
+	
+	/**
+	 * @author adrianmarcell
+	 * Apaga um usuario no banco de dados.
+	 * 
+	 * @param id
+	 */
+	void remover(Long id);
 }

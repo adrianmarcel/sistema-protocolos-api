@@ -40,5 +40,12 @@ public interface ProtocoloService {
 	 * @return Protocolo
 	 */
 	Protocolo persistir(Protocolo protocolo);
-
+	
+	/**
+	 * @author adrianmarcell
+	 * Apaga um protocolo no banco de dados.
+	 * 
+	 * @param id
+	 */
+	void remover(Long id);
 }

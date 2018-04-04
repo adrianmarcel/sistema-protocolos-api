@@ -42,4 +42,10 @@ public class ProtocoloServiceImpl implements ProtocoloService {
 		log.info("Persistindo protocolo: {}", protocolo);
 		return this.protocoloRepository.save(protocolo);
 	}
+	
+	@Override
+	public void remover(Long id) {
+		log.info("Removendo protocolo com ID: {}", id);
+		this.protocoloRepository.delete(id);
+	}
 }

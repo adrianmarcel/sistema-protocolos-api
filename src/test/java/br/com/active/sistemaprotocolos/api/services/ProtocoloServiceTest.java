@@ -40,6 +40,7 @@ public class ProtocoloServiceTest {
 
 	private Long idUsuario = 0L;
 	private Long idDiretoria = 0L;
+	private Long idProtocolo = 0L;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -75,6 +76,9 @@ public class ProtocoloServiceTest {
 		protocolo.setEmail("gabineteteste@alambari.sp.gov.br");
 		protocolo.setDescricao("Teste de criação de protocolo");
 		protocoloRepository.save(protocolo);
+		
+		System.out.println("Setando ID do protocolo na variável");
+		idProtocolo = protocolo.getId();
 		
 		System.out.println("Protocolo cadastrado com sucesso!");
 	}
@@ -128,5 +132,17 @@ public class ProtocoloServiceTest {
 		
 		System.out.println("Quantidade de protocolos encontrados após persistência: " + protocolos.size());
 		System.out.println("Protocolos após persistência: " + protocolos.toString());		
+	}
+	
+	@Test
+	public void testRemoverProtocolo() throws Exception {
+		System.out.println("Removendo protocolo com ID igual a: " + idProtocolo);
+		
+		this.protocoloService.remover(idProtocolo);
+		
+		List<Protocolo> protocolos = this.protocoloService.findAll();
+		
+		System.out.println("Quantidade de protocolos encontrados após remoção: " + protocolos.size());
+		System.out.println("Protocolos após remoção: " + protocolos.toString());
 	}
 }

@@ -121,5 +121,16 @@ public class UsuarioServiceTest {
 		System.out.println("Usuários após persistência: " + usuarios);
 	}
 	
-
+	@Test
+	public void testRemoverUsuario() throws Exception {
+		Long usuarioId = 1L;
+		
+		System.out.println("Removendo usuario com ID: " + usuarioId);
+		
+		this.usuarioService.remover(usuarioId);
+		
+		List<Usuario> usuarios = this.usuarioService.findAll();
+		
+		System.out.println("Usuários após remover: " + usuarios);
+	}
 }

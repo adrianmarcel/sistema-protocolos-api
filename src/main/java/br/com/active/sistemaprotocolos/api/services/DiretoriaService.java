@@ -30,5 +30,13 @@ public interface DiretoriaService {
 	 * @return Diretoria
 	 */
 	Diretoria persistir(Diretoria diretoria);
+	
+	/**
+	 * @author adrianmarcell
+	 * Apaga uma diretoria no banco de dados.
+	 * 
+	 * @param id
+	 */
+	void remover(Long id);
 
 }

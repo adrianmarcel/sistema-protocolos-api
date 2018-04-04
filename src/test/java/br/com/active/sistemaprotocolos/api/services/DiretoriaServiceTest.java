@@ -67,4 +67,17 @@ public class DiretoriaServiceTest {
 		
 		System.out.println("Diretorias após persistir: " + diretorias);
 	}
+	
+	@Test
+	public void testRemoverDiretoria() throws Exception {
+		Long diretoriaId = 1L;
+		
+		System.out.println("Removendo diretoria com ID: " + diretoriaId);
+		
+		this.diretoriaService.remover(diretoriaId);
+		
+		List<Diretoria> diretorias = this.diretoriaService.findAll();
+		
+		System.out.println("Diretorias após remover: " + diretorias);
+	}
 }
