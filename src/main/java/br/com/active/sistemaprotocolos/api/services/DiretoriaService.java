@@ -1,6 +1,7 @@
 package br.com.active.sistemaprotocolos.api.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import br.com.active.sistemaprotocolos.api.entities.Diretoria;
 
@@ -13,6 +14,15 @@ public interface DiretoriaService {
 	 * @return List<Diretoria>
 	 */
 	List<Diretoria> findAll();
+	
+	/**
+	 * @author adrianmarcell
+	 * Retorna determinado usuário numa busca pelo ID.
+	 * 
+	 * @param id
+	 * @return Optional<Diretoria>
+	 */
+	Optional<Diretoria> findById(Long id);
 	
 	/**
 	 * @author adrianmarcell

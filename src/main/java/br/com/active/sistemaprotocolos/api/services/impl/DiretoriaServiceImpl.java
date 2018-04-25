@@ -1,6 +1,7 @@
 package br.com.active.sistemaprotocolos.api.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,12 @@ public class DiretoriaServiceImpl implements DiretoriaService {
 	public List<Diretoria> findAll() {
 		log.info("Buscando todas as diretorias cadastradas na aplicação!");
 		return this.diretoriaRepository.findAll();
+	}
+	
+	@Override
+	public Optional<Diretoria> findById(Long id) {
+		log.info("Buscando um determinado diretoria pelo ID: {} na aplicação!", id);
+		return Optional.ofNullable(this.diretoriaRepository.findById(id));
 	}
 	
 	@Override

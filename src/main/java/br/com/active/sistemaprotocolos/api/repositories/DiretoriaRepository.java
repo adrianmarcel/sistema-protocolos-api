@@ -20,6 +20,8 @@ public interface DiretoriaRepository extends JpaRepository<Diretoria, Long>{
 	
 	List<Diretoria> findAll();
 	
+	Diretoria findById(Long id);
+	
 	List<Diretoria> findByDescricao(@Param("descricao") String descricao);
 
 }

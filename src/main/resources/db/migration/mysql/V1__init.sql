@@ -1,11 +1,7 @@
-create database sistema_protocolos;
-
-use sistema_protocolos;
-
 CREATE TABLE diretoria (
     id               bigint(20)   NOT NULL,
     descricao        varchar(255) NOT NULL,
-    sigla            varchar(255) NOT NULL,
+    sigla            varchar(3) NOT NULL,
     telefone         varchar(255) NOT NULL,
     email            varchar(255) NOT NULL,
     data_atualizacao datetime     NOT NULL,
@@ -14,7 +10,6 @@ CREATE TABLE diretoria (
 
 CREATE TABLE protocolo (
     id                     bigint(20)    NOT NULL,
-    data                   datetime      NOT NULL,
     data_atualizacao       datetime      NOT NULL,
     data_criacao           datetime      NOT NULL,
     descricao              varchar(255)  NOT NULL,
@@ -89,4 +84,4 @@ ALTER TABLE protocolo
 -- Constraints for table 'usuario'
 --
 ALTER TABLE usuario
-    ADD CONSTRAINT FK_DIRETORIA FOREIGN KEY (diretoria_id) REFERENCES diretoria (id);
+    ADD CONSTRAINT FK_DIRETORIA_USU FOREIGN KEY (diretoria_id) REFERENCES diretoria (id);
