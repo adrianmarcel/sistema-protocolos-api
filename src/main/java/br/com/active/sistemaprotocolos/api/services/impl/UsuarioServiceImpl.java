@@ -31,6 +31,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		log.info("Buscando um determinado usuário pelo ID: {} na aplicação!", id);
 		return Optional.ofNullable(this.usuarioRepository.findById(id));
 	}
+	
+	@Override
+	public Optional<Usuario> findByLogin(String login) {
+		log.info("Buscando um determinado usuário pelo login: {} na aplicação!", login);
+		return Optional.ofNullable(this.usuarioRepository.findByLogin(login));
+	}
 
 	@Override
 	public List<Usuario> findByNome(String descricao) {

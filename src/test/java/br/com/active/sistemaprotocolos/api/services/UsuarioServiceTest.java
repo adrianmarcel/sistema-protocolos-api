@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -63,6 +64,7 @@ public class UsuarioServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarTodosUsuarios() throws Exception {
 		System.out.println("Buscando todos os usuários!");
 		
@@ -73,6 +75,7 @@ public class UsuarioServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarUsuariosPorNome() throws Exception {
 		String nome = "Laynner";
 		System.out.println("Buscando usuários por nome: " + nome);
@@ -83,6 +86,7 @@ public class UsuarioServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarUsuarioPorId() throws Exception {
 		Long id = 1L;
 		System.out.println("Buscando usuário que contém o ID" + id);
@@ -93,6 +97,7 @@ public class UsuarioServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testPersistirUsuario() throws Exception {
 		System.out.println("Persistindo usuário ... ");
 		
@@ -122,6 +127,7 @@ public class UsuarioServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testRemoverUsuario() throws Exception {
 		Long usuarioId = 1L;
 		

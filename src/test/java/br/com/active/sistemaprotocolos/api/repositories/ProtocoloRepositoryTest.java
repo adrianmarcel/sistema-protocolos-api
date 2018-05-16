@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -80,6 +81,7 @@ public class ProtocoloRepositoryTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarProtocolos() {
 		System.out.println("Buscando todos os protocolos cadastrados na aplicação!");
 		List<Protocolo> protocolo = this.protocoloRepository.findAll();
@@ -89,6 +91,7 @@ public class ProtocoloRepositoryTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarProtocolosPorUsuario() {
 		System.out.println("Buscando todos os protocolos para o usuário cujo ID é igual a: " + idUsuario);
 		List<Protocolo> protocolo = this.protocoloRepository.findByUsuarioId(idUsuario);
@@ -98,6 +101,7 @@ public class ProtocoloRepositoryTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarProtocolosPorDiretoria() {
 		System.out.println("Buscando todos os protocolos para a diretoria cujo ID é igual a: " + idDiretoria);
 		List<Protocolo> protocolo = this.protocoloRepository.findByDiretoriaId(idDiretoria);

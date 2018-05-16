@@ -22,6 +22,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 	
 	Usuario findById(Long id);
 	
+	Usuario findByLogin(String login);
+	
 	List<Usuario> findByNome(@Param("nome") String nome);
 	
 }

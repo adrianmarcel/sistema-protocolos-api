@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -91,6 +92,7 @@ public class ProtocoloServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarProtocolos() throws Exception {
 		System.out.println("Buscando todos os protocolos cadastrados na aplicação!");
 		List<Protocolo> protocolo = this.protocoloService.findAll();
@@ -100,6 +102,7 @@ public class ProtocoloServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarProtocolosPorUsuario() throws Exception {
 		System.out.println("Buscando todos os protocolos para o usuário cujo ID é igual a: " + idUsuario);
 		List<Protocolo> protocolo = this.protocoloService.findByUsuarioId(idUsuario);
@@ -109,6 +112,7 @@ public class ProtocoloServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarProtocolosPorDiretoria() throws Exception {
 		System.out.println("Buscando todos os protocolos para a diretoria cujo ID é igual a: " + idDiretoria);
 		List<Protocolo> protocolo = this.protocoloService.findByDiretoriaId(idDiretoria);
@@ -118,6 +122,7 @@ public class ProtocoloServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testPersistirProtocolo() throws Exception {
 		System.out.println("Persistindo protocolo!");
 		
@@ -135,6 +140,7 @@ public class ProtocoloServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testRemoverProtocolo() throws Exception {
 		System.out.println("Removendo protocolo com ID igual a: " + idProtocolo);
 		

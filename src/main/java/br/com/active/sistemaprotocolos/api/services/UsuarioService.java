@@ -27,6 +27,15 @@ public interface UsuarioService {
 	
 	/**
 	 * @author adrianmarcell
+	 * Retorna determinado usuário numa busca pelo login.
+	 * 
+	 * @param login
+	 * @return Optional<Usuario>
+	 */
+	Optional<Usuario> findByLogin(String login);
+	
+	/**
+	 * @author adrianmarcell
 	 * Retorna determinado usuário numa busca pelo nome.
 	 * 
 	 * @param descricao

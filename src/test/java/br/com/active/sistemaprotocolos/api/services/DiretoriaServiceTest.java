@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -35,6 +36,7 @@ public class DiretoriaServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarTodasDiretorias() throws Exception {
 		System.out.println("Buscando todas as diretorias!");
 		List<Diretoria> diretorias = this.diretoriaService.findAll();
@@ -43,6 +45,7 @@ public class DiretoriaServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarPorDescricao() throws Exception {
 		String descricao = "Teste";
 		System.out.println("Buscando todas as diretorias cuja descrição contém: " + descricao);
@@ -53,6 +56,7 @@ public class DiretoriaServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testPersistirDiretoria() throws Exception {
 		System.out.println("Persistindo Diretoria");
 		
@@ -69,6 +73,7 @@ public class DiretoriaServiceTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testRemoverDiretoria() throws Exception {
 		Long diretoriaId = 1L;
 		

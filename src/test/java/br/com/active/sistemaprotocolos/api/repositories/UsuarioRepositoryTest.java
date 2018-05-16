@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -57,6 +58,7 @@ public class UsuarioRepositoryTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarTodosUsuarios() {
 		System.out.println("Buscando todos os usuários!");
 		
@@ -67,6 +69,7 @@ public class UsuarioRepositoryTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarUsuariosPorNome() {
 		String nome = "Laynner";
 		System.out.println("Buscando usuários por nome: " + nome);
@@ -77,6 +80,7 @@ public class UsuarioRepositoryTest {
 	}
 	
 	@Test
+	@WithMockUser
 	public void testBuscarUsuarioPorId() {
 		Long id = 1L;
 		System.out.println("Buscando usuário que contém o ID" + id);
